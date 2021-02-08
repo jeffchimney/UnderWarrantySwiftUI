@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE01FFE925C9DDF400CA8BEF /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01FFE825C9DDF400CA8BEF /* FloatingMenu.swift */; };
 		BE01FFEE25C9DFA400CA8BEF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01FFED25C9DFA400CA8BEF /* Haptics.swift */; };
+		BE339F7425D108EF00FEF205 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE339F7325D108EF00FEF205 /* AddItemView.swift */; };
 		BE989A1D25C91B5F00AC4E9A /* UnderWarrantyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A1C25C91B5F00AC4E9A /* UnderWarrantyApp.swift */; };
 		BE989A1F25C91B5F00AC4E9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A1E25C91B5F00AC4E9A /* ContentView.swift */; };
 		BE989A2125C91B6000AC4E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE989A2025C91B6000AC4E9A /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		BE01FFE825C9DDF400CA8BEF /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
 		BE01FFED25C9DFA400CA8BEF /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		BE339F7325D108EF00FEF205 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		BE989A1925C91B5F00AC4E9A /* UnderWarranty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnderWarranty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE989A1C25C91B5F00AC4E9A /* UnderWarrantyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderWarrantyApp.swift; sourceTree = "<group>"; };
 		BE989A1E25C91B5F00AC4E9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				BEEFFD8A25C927A8005DC5AA /* Extensions.swift */,
 				BE01FFE825C9DDF400CA8BEF /* FloatingMenu.swift */,
 				BE01FFED25C9DFA400CA8BEF /* Haptics.swift */,
+				BE339F7325D108EF00FEF205 /* AddItemView.swift */,
 			);
 			path = UnderWarranty;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				BE989A5725C91FD000AC4E9A /* Item+CoreDataProperties.swift in Sources */,
 				BEEFFD8B25C927A8005DC5AA /* Extensions.swift in Sources */,
 				BE989A5625C91FD000AC4E9A /* Item+CoreDataClass.swift in Sources */,
+				BE339F7425D108EF00FEF205 /* AddItemView.swift in Sources */,
 				BEEFFD8625C92764005DC5AA /* InformationDetailView.swift in Sources */,
 				BE989A2925C91B6000AC4E9A /* UnderWarranty.xcdatamodeld in Sources */,
 				BE989A2625C91B6000AC4E9A /* Persistence.swift in Sources */,

@@ -15,7 +15,8 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    @State var shouldShowWelcome: Bool  = true
+    @State private var shouldShowSheet: Bool = true
+    @State private var shouldShowWelcome: Bool  = true
 
     var body: some View {
         ZStack {
@@ -40,11 +41,19 @@ struct ContentView: View {
             }
             .zIndex(0)
             
-            FloatingMenu()
+            FloatingMenu(isShowingAddItemSheet: $shouldShowSheet)
+                .environment(\.managedObjectContext, viewContext)
                 .zIndex(1)
         }
-        .sheet(isPresented: $shouldShowWelcome, content: {
-            IntroductionView(shouldShowWelcome: $shouldShowWelcome)
+        .sheet(isPresented: $shouldShowSheet, onDismiss: {
+            shouldShowSheet = false
+            shouldShowWelcome = false
+        }, content: {
+            if (shouldShowWelcome) {
+                IntroductionView(shouldShowWelcome: $shouldShowSheet)
+            } else {
+                AddItemView()
+            }
         })
     }
 

@@ -9,6 +9,10 @@ import SwiftUI
 
 struct FloatingMenu: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @Binding var isShowingAddItemSheet: Bool
+    
     var body: some View {
         HStack {
             Spacer()
@@ -17,7 +21,7 @@ struct FloatingMenu: View {
                 
                 Button {
                     generateHaptic()
-                    
+                    isShowingAddItemSheet = true
                     // navigate to add item page (maybe just a sheet)
                 } label: {
                     ZStack {
@@ -39,6 +43,6 @@ struct FloatingMenu: View {
 
 struct FloatingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingMenu()
+        FloatingMenu(isShowingAddItemSheet: .constant(false))
     }
 }
