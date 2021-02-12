@@ -17,33 +17,73 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     @State private var shouldShowSheet: Bool = true
     @State private var shouldShowWelcome: Bool  = true
+    @State private var useCompactCards: Bool  = true
+    
+    private var columns: [GridItem] = [
+        GridItem(spacing: 20),
+        GridItem(spacing: 20),
+        GridItem(spacing: 20)
+    ]
+    
+    private var iPhoneColumns: [GridItem] = [
+        GridItem(spacing: 20)
+    ]
 
     var body: some View {
-        ZStack {
-            NavigationView {
-                List {
-                    ForEach(items) { item in
-                        ItemRow(item: item)
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-                .toolbar {
-                    #if os(iOS)
-                    EditButton()
-                    #endif
-
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-                
-                .navigationTitle("Watchlist")
-            }
-            .zIndex(0)
+        NavigationView {
             
-            FloatingMenu(isShowingAddItemSheet: $shouldShowSheet)
-                .environment(\.managedObjectContext, viewContext)
-                .zIndex(1)
+            // use sidebar navigation if on iPad
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                List {
+                    NavigationLink(
+                        destination: AddItemView(),
+                        label: {
+                            Text("House")
+                    })
+                    NavigationLink(
+                        destination: AddItemView(),
+                        label: {
+                            Text("Work")
+                    })
+                    NavigationLink(
+                        destination: AddItemView(),
+                        label: {
+                            Text("Fun")
+                    })
+                }
+                .listStyle(SidebarListStyle())
+            }
+            
+            ScrollView {
+                LazyVGrid(
+                    columns: UIDevice.current.userInterfaceIdiom == .pad ? columns : iPhoneColumns,
+                    alignment: .center,
+                    spacing: 20,
+                    pinnedViews: [.sectionHeaders, .sectionFooters]
+                ) {
+                    ForEach(items) { item in
+                        if useCompactCards {
+                            CompactItemCard(item: item)
+                                .shadow(radius: 5)
+                        } else {
+                            ItemCard(item: item)
+                                .shadow(radius: 5)
+                        }
+                    }
+                }
+                .padding(10)
+            }
+            
+            .toolbar {
+                #if os(iOS)
+                EditButton()
+                #endif
+
+                Button(action: addItem) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+            .navigationTitle("Watchlist")
         }
         .sheet(isPresented: $shouldShowSheet, onDismiss: {
             shouldShowSheet = false

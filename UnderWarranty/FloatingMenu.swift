@@ -19,21 +19,21 @@ struct FloatingMenu: View {
             VStack {
                 Spacer()
                 
-                Button {
-                    generateHaptic()
-                    isShowingAddItemSheet = true
-                    // navigate to add item page (maybe just a sheet)
-                } label: {
-                    ZStack {
-                        LinearGradient(gradient: Gradient(colors: [.mainColor, .mainColor]), startPoint: .leading, endPoint: .trailing)
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                        Image(systemName: "plus")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
-                    }
+//                Button {
+//                    generateHaptic()
+//                    isShowingAddItemSheet = true
+//                    // navigate to add item page (maybe just a sheet)
+//                } label: {
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [.mainColor, .mainColor]), startPoint: .leading, endPoint: .trailing)
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                    Image(systemName: "plus")
+                        .imageScale(.large)
+                        .foregroundColor(.white)
+                        .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
                 }
+//                }
                 .padding([.leading, .trailing, .bottom], 10)
             }
         }

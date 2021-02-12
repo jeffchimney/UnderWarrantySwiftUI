@@ -18,9 +18,11 @@
 		BE989A2925C91B6000AC4E9A /* UnderWarranty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE989A2725C91B6000AC4E9A /* UnderWarranty.xcdatamodeld */; };
 		BE989A3425C91B6000AC4E9A /* UnderWarrantyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A3325C91B6000AC4E9A /* UnderWarrantyTests.swift */; };
 		BE989A3F25C91B6000AC4E9A /* UnderWarrantyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A3E25C91B6000AC4E9A /* UnderWarrantyUITests.swift */; };
-		BE989A5025C91EFC00AC4E9A /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A4F25C91EFC00AC4E9A /* ItemRow.swift */; };
+		BE989A5025C91EFC00AC4E9A /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A4F25C91EFC00AC4E9A /* ItemCard.swift */; };
 		BE989A5625C91FD000AC4E9A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A5425C91FD000AC4E9A /* Item+CoreDataClass.swift */; };
 		BE989A5725C91FD000AC4E9A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE989A5525C91FD000AC4E9A /* Item+CoreDataProperties.swift */; };
+		BECDFF2A25D6317B008FB36D /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECDFF2925D6317B008FB36D /* ViewModifiers.swift */; };
+		BECDFF2F25D631CB008FB36D /* CompactItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECDFF2E25D631CB008FB36D /* CompactItemCard.swift */; };
 		BEEFFD8625C92764005DC5AA /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFFD8525C92764005DC5AA /* InformationDetailView.swift */; };
 		BEEFFD8B25C927A8005DC5AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFFD8A25C927A8005DC5AA /* Extensions.swift */; };
 		BEEFFD9025C927EE005DC5AA /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFFD8F25C927EE005DC5AA /* InformationContainerView.swift */; };
@@ -63,9 +65,11 @@
 		BE989A3A25C91B6000AC4E9A /* UnderWarrantyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnderWarrantyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE989A3E25C91B6000AC4E9A /* UnderWarrantyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderWarrantyUITests.swift; sourceTree = "<group>"; };
 		BE989A4025C91B6000AC4E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE989A4F25C91EFC00AC4E9A /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		BE989A4F25C91EFC00AC4E9A /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		BE989A5425C91FD000AC4E9A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BE989A5525C91FD000AC4E9A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BECDFF2925D6317B008FB36D /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		BECDFF2E25D631CB008FB36D /* CompactItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactItemCard.swift; sourceTree = "<group>"; };
 		BEEFFD8525C92764005DC5AA /* InformationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
 		BEEFFD8A25C927A8005DC5AA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BEEFFD8F25C927EE005DC5AA /* InformationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationContainerView.swift; sourceTree = "<group>"; };
@@ -126,16 +130,17 @@
 				BEEFFD9E25C928D1005DC5AA /* IntroductionViews */,
 				BE989A1C25C91B5F00AC4E9A /* UnderWarrantyApp.swift */,
 				BE989A1E25C91B5F00AC4E9A /* ContentView.swift */,
+				BECDFF3325D6322F008FB36D /* ItemCards */,
 				BE989A2025C91B6000AC4E9A /* Assets.xcassets */,
 				BE989A2525C91B6000AC4E9A /* Persistence.swift */,
 				BE989A2A25C91B6000AC4E9A /* Info.plist */,
 				BE989A2725C91B6000AC4E9A /* UnderWarranty.xcdatamodeld */,
 				BE989A2225C91B6000AC4E9A /* Preview Content */,
-				BE989A4F25C91EFC00AC4E9A /* ItemRow.swift */,
 				BEEFFD8A25C927A8005DC5AA /* Extensions.swift */,
 				BE01FFE825C9DDF400CA8BEF /* FloatingMenu.swift */,
 				BE01FFED25C9DFA400CA8BEF /* Haptics.swift */,
 				BE339F7325D108EF00FEF205 /* AddItemView.swift */,
+				BECDFF2925D6317B008FB36D /* ViewModifiers.swift */,
 			);
 			path = UnderWarranty;
 			sourceTree = "<group>";
@@ -164,6 +169,15 @@
 				BE989A4025C91B6000AC4E9A /* Info.plist */,
 			);
 			path = UnderWarrantyUITests;
+			sourceTree = "<group>";
+		};
+		BECDFF3325D6322F008FB36D /* ItemCards */ = {
+			isa = PBXGroup;
+			children = (
+				BE989A4F25C91EFC00AC4E9A /* ItemCard.swift */,
+				BECDFF2E25D631CB008FB36D /* CompactItemCard.swift */,
+			);
+			path = ItemCards;
 			sourceTree = "<group>";
 		};
 		BEEFFD9E25C928D1005DC5AA /* IntroductionViews */ = {
@@ -314,9 +328,11 @@
 				BEEFFD8625C92764005DC5AA /* InformationDetailView.swift in Sources */,
 				BE989A2925C91B6000AC4E9A /* UnderWarranty.xcdatamodeld in Sources */,
 				BE989A2625C91B6000AC4E9A /* Persistence.swift in Sources */,
-				BE989A5025C91EFC00AC4E9A /* ItemRow.swift in Sources */,
+				BE989A5025C91EFC00AC4E9A /* ItemCard.swift in Sources */,
 				BE01FFE925C9DDF400CA8BEF /* FloatingMenu.swift in Sources */,
+				BECDFF2F25D631CB008FB36D /* CompactItemCard.swift in Sources */,
 				BE989A1F25C91B5F00AC4E9A /* ContentView.swift in Sources */,
+				BECDFF2A25D6317B008FB36D /* ViewModifiers.swift in Sources */,
 				BEEFFD9525C9283F005DC5AA /* TitleView.swift in Sources */,
 				BE989A1D25C91B5F00AC4E9A /* UnderWarrantyApp.swift in Sources */,
 				BEEFFD9A25C928B9005DC5AA /* IntroductionView.swift in Sources */,
