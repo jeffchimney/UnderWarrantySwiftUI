@@ -14,7 +14,7 @@ struct CompactItemCard: View {
         HStack {
             Image(uiImage: UIImage(named: "lawnmower")!)
                 .resizable()
-                .aspectRatio(contentMode: ContentMode.fit)
+                .aspectRatio(contentMode: .fit)
             
             VStack {
                 HStack {

@@ -11,27 +11,40 @@ struct ItemCard: View {
     var item: Item
     
     var body: some View {
-        HStack {
+        VStack {
+            HStack {
+                Text(item.folder!.wrappedName)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .padding([.leading, .trailing, .top])
+            HStack {
+                Text(item.wrappedTitle)
+                    .font(.headline)
+                Spacer()
+            }
+            .padding([.leading, .trailing])
+            
             Image(uiImage: UIImage(named: "lawnmower")!)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100)
+                .padding([.leading, .trailing])
             
             VStack {
+                
                 HStack {
-                    Text(item.wrappedTitle)
-                        .font(.headline)
+                    Text("Begins on \(item.wrappedStartDate, formatter: itemFormatter)")
+                        .font(.callout)
                     Spacer()
                 }
-                .padding([.top, .leading])
-                
+                .padding([.leading, .trailing])
                 HStack {
                     Text("Expires on \(item.wrappedEndDate, formatter: itemFormatter)")
                         .font(.callout)
-                        .foregroundColor(.gray)
                     Spacer()
                 }
-                .padding()
+                .padding([.leading, .trailing])
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)

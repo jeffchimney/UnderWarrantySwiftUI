@@ -15,19 +15,16 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Folder.name, ascending: true)],
+        animation: .default)
+    private var folders: FetchedResults<Folder>
+    
     @State private var shouldShowSheet: Bool = true
     @State private var shouldShowWelcome: Bool  = true
-    @State private var useCompactCards: Bool  = true
     
-    private var columns: [GridItem] = [
-        GridItem(spacing: 20),
-        GridItem(spacing: 20),
-        GridItem(spacing: 20)
-    ]
-    
-    private var iPhoneColumns: [GridItem] = [
-        GridItem(spacing: 20)
-    ]
+    @State private var selection = 0
 
     var body: some View {
         NavigationView {
@@ -36,54 +33,40 @@ struct ContentView: View {
             if UIDevice.current.userInterfaceIdiom == .pad {
                 List {
                     NavigationLink(
-                        destination: AddItemView(),
+                        destination:
+                            AddItemView(),
                         label: {
-                            Text("House")
+                            Label("Everything", systemImage: "tray.2")
                     })
+                    
                     NavigationLink(
-                        destination: AddItemView(),
+                        destination:
+                            AddItemView(),
                         label: {
-                            Text("Work")
+                            Label("Expiring Soon", systemImage: "clock")
                     })
+                    
                     NavigationLink(
-                        destination: AddItemView(),
+                        destination:
+                            AddItemView(),
                         label: {
-                            Text("Fun")
+                            Label("Flagged", systemImage: "flag")
                     })
-                }
-                .listStyle(SidebarListStyle())
-            }
-            
-            ScrollView {
-                LazyVGrid(
-                    columns: UIDevice.current.userInterfaceIdiom == .pad ? columns : iPhoneColumns,
-                    alignment: .center,
-                    spacing: 20,
-                    pinnedViews: [.sectionHeaders, .sectionFooters]
-                ) {
-                    ForEach(items) { item in
-                        if useCompactCards {
-                            CompactItemCard(item: item)
-                                .shadow(radius: 5)
-                        } else {
-                            ItemCard(item: item)
-                                .shadow(radius: 5)
+                    
+                    Section(header: Text("Folders")) {
+                        ForEach(folders) { folder in
+                            NavigationLink(
+                                destination:
+                                    FolderView(folder: folder)
+                                        .environment(\.managedObjectContext, viewContext),
+                                label: {
+                                    Label(folder.wrappedName, systemImage: folder.wrappedIcon)
+                            })
                         }
                     }
                 }
-                .padding(10)
+                .listStyle(SidebarListStyle())
             }
-            
-            .toolbar {
-                #if os(iOS)
-                EditButton()
-                #endif
-
-                Button(action: addItem) {
-                    Label("Add Item", systemImage: "plus")
-                }
-            }
-            .navigationTitle("Watchlist")
         }
         .sheet(isPresented: $shouldShowSheet, onDismiss: {
             shouldShowSheet = false
@@ -95,37 +78,6 @@ struct ContentView: View {
                 AddItemView()
             }
         })
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
     }
 }
 

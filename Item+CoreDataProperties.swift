@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  UnderWarranty
 //
-//  Created by Jeff Chimney on 2021-02-01.
+//  Created by Jeff Chimney on 2021-02-13.
 //
 //
 
@@ -16,12 +16,13 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
+    @NSManaged public var about: String?
+    @NSManaged public var endDate: Date?
+    @NSManaged public var startDate: Date?
     @NSManaged public var timestamp: Date?
     @NSManaged public var title: String?
-    @NSManaged public var about: String?
-    @NSManaged public var startDate: Date?
-    @NSManaged public var endDate: Date?
-
+    @NSManaged public var folder: Folder?
+    
     public var wrappedTitle: String {
         title ?? "Unknown Title"
     }
@@ -37,6 +38,11 @@ extension Item {
     public var wrappedEndDate: Date {
         endDate ?? Date()
     }
+    
+    public var wrappedFolder: Folder {
+        folder ?? Folder()
+    }
+
 }
 
 extension Item : Identifiable {
